@@ -1,14 +1,33 @@
-import Image from "next/image";
+'use client'
+import { useEffect, useState } from 'react';
+import { fetchJobs } from '@/lib/fetchJobs';
+import { Job } from '@/types/job';
+
 
 export default function Home() {
-  return (
-    
-        
-    <h1 className = 'text-3xl font-bold'>
-      Job Listings
-    </h1>
-        
-        
 
+  const [jobs, setJobs] = useState<Job[]>([]);
+
+  useEffect(() => {
+    async function loadJobs() {
+      try {
+        const data = await fetchJobs();
+        setJobs(data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    loadJobs();
+  }, []);
+  return ( 
+    <main> 
+      <h1 className = 'text-3xl font-bold'>
+        Job Listings
+      </h1>
+      {jobs.map((job) => (
+        <div key={job.id}>{job.title}</div>
+      ))}
+    </main>
   );
 }
