@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { fetchJobs } from '@/lib/fetchJobs';
 import { Job } from '@/types/job';
+import JobList from '@/components/JobList'
 
 
 export default function Home() {
@@ -25,9 +26,10 @@ export default function Home() {
       <h1 className = 'text-3xl font-bold'>
         Job Listings
       </h1>
-      {jobs.map((job) => (
+      <JobList jobs={jobs} />
+      {/* {jobs.map((job) => (
         <div key={job.id}>{job.title}</div>
-      ))}
+      ))} */}
     </main>
   );
 }
