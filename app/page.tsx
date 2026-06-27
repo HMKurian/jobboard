@@ -65,7 +65,7 @@ export default function Home() {
           <div className="flex items-center gap-0">
             
             <Image
-              src="/logo1.png"
+              src="/jobboard/logo1.png"
               alt="Company logo"
               width={150}
               height={150}
