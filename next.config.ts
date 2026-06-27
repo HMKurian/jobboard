@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   output: "export",
   basePath: "/jobboard",
   assetPrefix: "/jobboard",
+  images: {
+    unoptimized: true,
+  },
 
 };
 
