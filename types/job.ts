@@ -4,4 +4,7 @@ export interface Job {
     department: string;
     location: string;
     type: 'Full-time' | 'Internship' | 'Contract';
+    about: string;
+    responsibilities: string[];
+    qualifications: string[];
 }
